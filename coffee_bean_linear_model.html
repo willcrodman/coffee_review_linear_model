@@ -14516,7 +14516,7 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Modeling-Coffee-Reviewing-with-Linear-Regression">Modeling Coffee Reviewing with Linear Regression<a class="anchor-link" href="#Modeling-Coffee-Reviewing-with-Linear-Regression">&#182;</a></h1><h2 id="Will-Rodman---Final-Project---Math-6040-Linear-Models">Will Rodman - Final Project - Math 6040 Linear Models<a class="anchor-link" href="#Will-Rodman---Final-Project---Math-6040-Linear-Models">&#182;</a></h2><p>This project studies data from <a href="www.coffeereviews.com">coffeereviews.com</a>, which was obtained through web scraping and published on <a href="www.kaggle.com">kaggle.com</a>. The goal is to develop a linear regression model that predicts individual ratings for coffee beans. Additonal quesitons answered about the data include:</p>
+<h1 id="Modeling-Coffee-Reviewing-with-Linear-Regression">Modeling Coffee Reviewing with Linear Regression<a class="anchor-link" href="#Modeling-Coffee-Reviewing-with-Linear-Regression">&#182;</a></h1><h2 id="Will-Rodman---Final-Project---Math-6040-Linear-Models">Will Rodman - Final Project - Math 6040 Linear Models<a class="anchor-link" href="#Will-Rodman---Final-Project---Math-6040-Linear-Models">&#182;</a></h2><p>This project studies data from <a href="https://www.coffeereview.com">coffeereview.com</a>, which was obtained through web scraping and published on <a href="https://www.kaggle.com">kaggle.com</a>. The goal is to develop a linear regression model that predicts individual ratings for coffee beans. Additonal quesitons answered about the data include:</p>
 <ul>
 <li>What features of a coffee bean best determine a rating? </li>
 <li>How do ratings compare to the level of coffee beans roast? </li>
@@ -14544,7 +14544,6 @@ a.anchor-link {
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">from</span> <span class="nn">statsmodels.stats.anova</span> <span class="kn">import</span> <span class="n">anova_lm</span>
 <span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
 </pre></div>
 
@@ -14556,7 +14555,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Sprint-1:-Loading-and-cleaning-the-dataset.">Sprint 1: Loading and cleaning the dataset.<a class="anchor-link" href="#Sprint-1:-Loading-and-cleaning-the-dataset.">&#182;</a></h3><p>The CSV files <a href="./data/coffee_df.csv">coffee_df</a> and <a href="./data/coffee_analysis.csv">coffee_analysis</a> are two different versions of the data that has been scraped. In order to use feature from both datasets, I merge the two datasets and drop the duplicate values.</p>
+<h3 id="Sprint-1:-Loading-and-cleaning-the-dataset.">Sprint 1: Loading and cleaning the dataset.<a class="anchor-link" href="#Sprint-1:-Loading-and-cleaning-the-dataset.">&#182;</a></h3><p>The CSV files <a href="./data/coffee_df.csv">coffee_df</a> and <a href="./data/coffee_analysis.csv">coffee_analysis</a> are two different versions of the data that has been scraped. In order to use features from both datasets, I merge the two datasets and drop the duplicate values.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14801,17 +14800,16 @@ dtype: object
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Each row in the dataset represents an individual users rating for a coffee bean; here is a description for each feature:</p>
 <ul>
-<li><strong>acid</strong>: Acidity levels in ranging from 1 - 10.</li>
-<li><strong>body</strong>: Body characteristic of ranging from 1 - 10.</li>
+<li><strong>acid</strong>: Acidity levels ranging from 1 - 10.</li>
+<li><strong>body</strong>: Body characteristic ranging from 1 - 10.</li>
 <li><strong>flavor</strong>: Strength of flavor ranging from 1 - 10.</li>
 <li><strong>aftertaste</strong>: Aftertaste persistence ranging from 1 - 10.</li>
 <li><strong>roast</strong>: Level of roast. </li>
-<li><strong>loc_country</strong>: Location of the user rating .</li>
+<li><strong>loc_country</strong>: Location of a users rating.</li>
 <li><strong>100g_USD</strong>: Price per 100 grams in USD.</li>
 <li><strong>rating</strong>: Overall rating ranging from 1 - 100.</li>
 </ul>
-<p>Since the <code>roast</code> feature is an ordinal categorical data type, this feature needs to be categorically ordered datatype.</p>
-<p>Ordered table for the roast feature:
+<p>Since the <code>roast</code> feature is an ordinal data type, this feature needs to be sorted.Ordered table for the roast feature:
 | Roast         | Level |
 |---------------|-------|
 | Light         | 1     |
@@ -14944,6 +14942,12 @@ dtype: object
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Next, I will plot the distributions of these same features using a histogram.</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14996,8 +15000,8 @@ dtype: object
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Looking at the 6 histogram plots: the feature <strong>100g_USD appears to be exponentially distributed</strong>, while the other 5 distributions appear to center around the mean. The rating feature appears to be the closest to being the most normally distributed feature.</p>
-<p>Next, I will visualize the ordinal features using a box plot comparison, where the distributions for 5 ordinal features are plotted against the range of rating feature values.</p>
+<p>Looking at the 6 histogram plots: the feature <strong>100g_USD appears to be exponentially distributed</strong>, while the other 5 distributions appear to center around the mean. The rating feature appears to be the closest to a normal distribution.</p>
+<p>Next, I will visualize the numerical features using a box plot comparison, where the distributions for 5 numerical features are plotted against the range of rating feature values.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15079,169 +15083,169 @@ dtype: object
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <style type="text/css">
-#T_643d5_row0_col0, #T_643d5_row1_col1, #T_643d5_row2_col2, #T_643d5_row3_col3, #T_643d5_row4_col4, #T_643d5_row5_col5 {
+#T_04d70_row0_col0, #T_04d70_row1_col1, #T_04d70_row2_col2, #T_04d70_row3_col3, #T_04d70_row4_col4, #T_04d70_row5_col5 {
   background-color: #b40426;
   color: #f1f1f1;
 }
-#T_643d5_row0_col1, #T_643d5_row2_col1 {
+#T_04d70_row0_col1, #T_04d70_row2_col1 {
   background-color: #6c8ff1;
   color: #f1f1f1;
 }
-#T_643d5_row0_col2 {
+#T_04d70_row0_col2 {
   background-color: #7597f6;
   color: #f1f1f1;
 }
-#T_643d5_row0_col3 {
+#T_04d70_row0_col3 {
   background-color: #93b5fe;
   color: #000000;
 }
-#T_643d5_row0_col4 {
+#T_04d70_row0_col4 {
   background-color: #3c4ec2;
   color: #f1f1f1;
 }
-#T_643d5_row0_col5 {
+#T_04d70_row0_col5 {
   background-color: #f7b89c;
   color: #000000;
 }
-#T_643d5_row1_col0 {
+#T_04d70_row1_col0 {
   background-color: #6b8df0;
   color: #f1f1f1;
 }
-#T_643d5_row1_col2, #T_643d5_row3_col4 {
+#T_04d70_row1_col2, #T_04d70_row3_col4 {
   background-color: #5673e0;
   color: #f1f1f1;
 }
-#T_643d5_row1_col3 {
+#T_04d70_row1_col3 {
   background-color: #5470de;
   color: #f1f1f1;
 }
-#T_643d5_row1_col4, #T_643d5_row4_col0, #T_643d5_row4_col1, #T_643d5_row4_col2, #T_643d5_row4_col3, #T_643d5_row4_col5 {
+#T_04d70_row1_col4, #T_04d70_row4_col0, #T_04d70_row4_col1, #T_04d70_row4_col2, #T_04d70_row4_col3, #T_04d70_row4_col5 {
   background-color: #3b4cc0;
   color: #f1f1f1;
 }
-#T_643d5_row1_col5 {
+#T_04d70_row1_col5 {
   background-color: #e1dad6;
   color: #000000;
 }
-#T_643d5_row2_col0 {
+#T_04d70_row2_col0 {
   background-color: #88abfd;
   color: #000000;
 }
-#T_643d5_row2_col3 {
+#T_04d70_row2_col3 {
   background-color: #779af7;
   color: #f1f1f1;
 }
-#T_643d5_row2_col4 {
+#T_04d70_row2_col4 {
   background-color: #506bda;
   color: #f1f1f1;
 }
-#T_643d5_row2_col5 {
+#T_04d70_row2_col5 {
   background-color: #e7d7ce;
   color: #000000;
 }
-#T_643d5_row3_col0 {
+#T_04d70_row3_col0 {
   background-color: #a9c6fd;
   color: #000000;
 }
-#T_643d5_row3_col1 {
+#T_04d70_row3_col1 {
   background-color: #6f92f3;
   color: #f1f1f1;
 }
-#T_643d5_row3_col2 {
+#T_04d70_row3_col2 {
   background-color: #7ea1fa;
   color: #f1f1f1;
 }
-#T_643d5_row3_col5 {
+#T_04d70_row3_col5 {
   background-color: #f3c7b1;
   color: #000000;
 }
-#T_643d5_row5_col0 {
+#T_04d70_row5_col0 {
   background-color: #f7aa8c;
   color: #000000;
 }
-#T_643d5_row5_col1 {
+#T_04d70_row5_col1 {
   background-color: #efcfbf;
   color: #000000;
 }
-#T_643d5_row5_col2 {
+#T_04d70_row5_col2 {
   background-color: #edd2c3;
   color: #000000;
 }
-#T_643d5_row5_col3 {
+#T_04d70_row5_col3 {
   background-color: #f5c2aa;
   color: #000000;
 }
-#T_643d5_row5_col4 {
+#T_04d70_row5_col4 {
   background-color: #6282ea;
   color: #f1f1f1;
 }
 </style>
-<table id="T_643d5">
+<table id="T_04d70">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_643d5_level0_col0" class="col_heading level0 col0" >acid</th>
-      <th id="T_643d5_level0_col1" class="col_heading level0 col1" >body</th>
-      <th id="T_643d5_level0_col2" class="col_heading level0 col2" >flavor</th>
-      <th id="T_643d5_level0_col3" class="col_heading level0 col3" >aftertaste</th>
-      <th id="T_643d5_level0_col4" class="col_heading level0 col4" >100g_USD</th>
-      <th id="T_643d5_level0_col5" class="col_heading level0 col5" >rating</th>
+      <th id="T_04d70_level0_col0" class="col_heading level0 col0" >acid</th>
+      <th id="T_04d70_level0_col1" class="col_heading level0 col1" >body</th>
+      <th id="T_04d70_level0_col2" class="col_heading level0 col2" >flavor</th>
+      <th id="T_04d70_level0_col3" class="col_heading level0 col3" >aftertaste</th>
+      <th id="T_04d70_level0_col4" class="col_heading level0 col4" >100g_USD</th>
+      <th id="T_04d70_level0_col5" class="col_heading level0 col5" >rating</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_643d5_level0_row0" class="row_heading level0 row0" >acid</th>
-      <td id="T_643d5_row0_col0" class="data row0 col0" >1.000000</td>
-      <td id="T_643d5_row0_col1" class="data row0 col1" >0.303699</td>
-      <td id="T_643d5_row0_col2" class="data row0 col2" >0.373901</td>
-      <td id="T_643d5_row0_col3" class="data row0 col3" >0.450708</td>
-      <td id="T_643d5_row0_col4" class="data row0 col4" >0.178089</td>
-      <td id="T_643d5_row0_col5" class="data row0 col5" >0.758571</td>
+      <th id="T_04d70_level0_row0" class="row_heading level0 row0" >acid</th>
+      <td id="T_04d70_row0_col0" class="data row0 col0" >1.000000</td>
+      <td id="T_04d70_row0_col1" class="data row0 col1" >0.303699</td>
+      <td id="T_04d70_row0_col2" class="data row0 col2" >0.373901</td>
+      <td id="T_04d70_row0_col3" class="data row0 col3" >0.450708</td>
+      <td id="T_04d70_row0_col4" class="data row0 col4" >0.178089</td>
+      <td id="T_04d70_row0_col5" class="data row0 col5" >0.758571</td>
     </tr>
     <tr>
-      <th id="T_643d5_level0_row1" class="row_heading level0 row1" >body</th>
-      <td id="T_643d5_row1_col0" class="data row1 col0" >0.303699</td>
-      <td id="T_643d5_row1_col1" class="data row1 col1" >1.000000</td>
-      <td id="T_643d5_row1_col2" class="data row1 col2" >0.304462</td>
-      <td id="T_643d5_row1_col3" class="data row1 col3" >0.312396</td>
-      <td id="T_643d5_row1_col4" class="data row1 col4" >0.174092</td>
-      <td id="T_643d5_row1_col5" class="data row1 col5" >0.651938</td>
+      <th id="T_04d70_level0_row1" class="row_heading level0 row1" >body</th>
+      <td id="T_04d70_row1_col0" class="data row1 col0" >0.303699</td>
+      <td id="T_04d70_row1_col1" class="data row1 col1" >1.000000</td>
+      <td id="T_04d70_row1_col2" class="data row1 col2" >0.304462</td>
+      <td id="T_04d70_row1_col3" class="data row1 col3" >0.312396</td>
+      <td id="T_04d70_row1_col4" class="data row1 col4" >0.174092</td>
+      <td id="T_04d70_row1_col5" class="data row1 col5" >0.651938</td>
     </tr>
     <tr>
-      <th id="T_643d5_level0_row2" class="row_heading level0 row2" >flavor</th>
-      <td id="T_643d5_row2_col0" class="data row2 col0" >0.373901</td>
-      <td id="T_643d5_row2_col1" class="data row2 col1" >0.304462</td>
-      <td id="T_643d5_row2_col2" class="data row2 col2" >1.000000</td>
-      <td id="T_643d5_row2_col3" class="data row2 col3" >0.392868</td>
-      <td id="T_643d5_row2_col4" class="data row2 col4" >0.234329</td>
-      <td id="T_643d5_row2_col5" class="data row2 col5" >0.669822</td>
+      <th id="T_04d70_level0_row2" class="row_heading level0 row2" >flavor</th>
+      <td id="T_04d70_row2_col0" class="data row2 col0" >0.373901</td>
+      <td id="T_04d70_row2_col1" class="data row2 col1" >0.304462</td>
+      <td id="T_04d70_row2_col2" class="data row2 col2" >1.000000</td>
+      <td id="T_04d70_row2_col3" class="data row2 col3" >0.392868</td>
+      <td id="T_04d70_row2_col4" class="data row2 col4" >0.234329</td>
+      <td id="T_04d70_row2_col5" class="data row2 col5" >0.669822</td>
     </tr>
     <tr>
-      <th id="T_643d5_level0_row3" class="row_heading level0 row3" >aftertaste</th>
-      <td id="T_643d5_row3_col0" class="data row3 col0" >0.450708</td>
-      <td id="T_643d5_row3_col1" class="data row3 col1" >0.312396</td>
-      <td id="T_643d5_row3_col2" class="data row3 col2" >0.392868</td>
-      <td id="T_643d5_row3_col3" class="data row3 col3" >1.000000</td>
-      <td id="T_643d5_row3_col4" class="data row3 col4" >0.250361</td>
-      <td id="T_643d5_row3_col5" class="data row3 col5" >0.722725</td>
+      <th id="T_04d70_level0_row3" class="row_heading level0 row3" >aftertaste</th>
+      <td id="T_04d70_row3_col0" class="data row3 col0" >0.450708</td>
+      <td id="T_04d70_row3_col1" class="data row3 col1" >0.312396</td>
+      <td id="T_04d70_row3_col2" class="data row3 col2" >0.392868</td>
+      <td id="T_04d70_row3_col3" class="data row3 col3" >1.000000</td>
+      <td id="T_04d70_row3_col4" class="data row3 col4" >0.250361</td>
+      <td id="T_04d70_row3_col5" class="data row3 col5" >0.722725</td>
     </tr>
     <tr>
-      <th id="T_643d5_level0_row4" class="row_heading level0 row4" >100g_USD</th>
-      <td id="T_643d5_row4_col0" class="data row4 col0" >0.178089</td>
-      <td id="T_643d5_row4_col1" class="data row4 col1" >0.174092</td>
-      <td id="T_643d5_row4_col2" class="data row4 col2" >0.234329</td>
-      <td id="T_643d5_row4_col3" class="data row4 col3" >0.250361</td>
-      <td id="T_643d5_row4_col4" class="data row4 col4" >1.000000</td>
-      <td id="T_643d5_row4_col5" class="data row4 col5" >0.280223</td>
+      <th id="T_04d70_level0_row4" class="row_heading level0 row4" >100g_USD</th>
+      <td id="T_04d70_row4_col0" class="data row4 col0" >0.178089</td>
+      <td id="T_04d70_row4_col1" class="data row4 col1" >0.174092</td>
+      <td id="T_04d70_row4_col2" class="data row4 col2" >0.234329</td>
+      <td id="T_04d70_row4_col3" class="data row4 col3" >0.250361</td>
+      <td id="T_04d70_row4_col4" class="data row4 col4" >1.000000</td>
+      <td id="T_04d70_row4_col5" class="data row4 col5" >0.280223</td>
     </tr>
     <tr>
-      <th id="T_643d5_level0_row5" class="row_heading level0 row5" >rating</th>
-      <td id="T_643d5_row5_col0" class="data row5 col0" >0.758571</td>
-      <td id="T_643d5_row5_col1" class="data row5 col1" >0.651938</td>
-      <td id="T_643d5_row5_col2" class="data row5 col2" >0.669822</td>
-      <td id="T_643d5_row5_col3" class="data row5 col3" >0.722725</td>
-      <td id="T_643d5_row5_col4" class="data row5 col4" >0.280223</td>
-      <td id="T_643d5_row5_col5" class="data row5 col5" >1.000000</td>
+      <th id="T_04d70_level0_row5" class="row_heading level0 row5" >rating</th>
+      <td id="T_04d70_row5_col0" class="data row5 col0" >0.758571</td>
+      <td id="T_04d70_row5_col1" class="data row5 col1" >0.651938</td>
+      <td id="T_04d70_row5_col2" class="data row5 col2" >0.669822</td>
+      <td id="T_04d70_row5_col3" class="data row5 col3" >0.722725</td>
+      <td id="T_04d70_row5_col4" class="data row5 col4" >0.280223</td>
+      <td id="T_04d70_row5_col5" class="data row5 col5" >1.000000</td>
     </tr>
   </tbody>
 </table>
@@ -15264,7 +15268,7 @@ dtype: object
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Sprint-3:-Visualizing-the-categorical-features.">Sprint 3: Visualizing the categorical features.<a class="anchor-link" href="#Sprint-3:-Visualizing-the-categorical-features.">&#182;</a></h3><p>For the categorical features, I will start by printing some the number of observations per feature.</p>
+<h3 id="Sprint-3:-Visualizing-the-categorical-features.">Sprint 3: Visualizing the categorical features.<a class="anchor-link" href="#Sprint-3:-Visualizing-the-categorical-features.">&#182;</a></h3><p>For the categorical features, I will start by printing the number of observations per category.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15338,7 +15342,7 @@ Name: loc_country, dtype: int64
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Looking at the value counts, the Medium-Light category in <code>roast</code> and the United States category in <code>loc_country</code> both have more observations than all other categories in their respective features combined.</p>
-<p>Next, I will visualize the categorical features using a box plot comparison, where the distributions for 5 ordinal features are plotted against each category for a feature.</p>
+<p>Next, I will visualize the categorical features using a box plot comparison, where the distributions for <code>rating</code> are plotted against each category for a feature.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15573,7 +15577,7 @@ stat: 0.891     p-value: 9.273e-34
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Sprint-5:-Fitting-Linear-Models">Sprint 5: Fitting Linear Models<a class="anchor-link" href="#Sprint-5:-Fitting-Linear-Models">&#182;</a></h3><p>Here, I fit linear model using a variety of feature sets to find a model with the highest achieving F-statistic and R-squared values.</p>
+<h3 id="Sprint-5:-Fitting-Linear-Models">Sprint 5: Fitting Linear Models<a class="anchor-link" href="#Sprint-5:-Fitting-Linear-Models">&#182;</a></h3><p>Here, I fit linear models using a variety of feature sets to find a model with the highest achieving F-statistic, R-squared and Log-Likelihood values.</p>
 <p>First, I will fit a linear model where <code>rating</code> is the <strong>dependent variable</strong> and all other nominal features are the <strong>independent variables</strong>; the fit is done using the least squares method. This linear equation is written as follows:</p>
 <p>$
 \hat{rating} = \beta_0 + \beta_1 \text{acid} + \beta_2 \text{body} + \beta_3 \text{flavor} + \beta_4 \text{aftertaste} + \beta_5 \text{100g\_USD} + \epsilon \\
@@ -15627,7 +15631,7 @@ $</p>
   <th>Date:</th>             <td>Wed, 01 May 2024</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td> 
 </tr>
 <tr>
-  <th>Time:</th>                 <td>19:28:31</td>     <th>  Log-Likelihood:    </th> <td> -606.38</td>
+  <th>Time:</th>                 <td>19:38:42</td>     <th>  Log-Likelihood:    </th> <td> -606.38</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1779</td>      <th>  AIC:               </th> <td>   1225.</td>
@@ -15740,7 +15744,7 @@ $</p>
   <th>Date:</th>             <td>Wed, 01 May 2024</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td> 
 </tr>
 <tr>
-  <th>Time:</th>                 <td>19:28:31</td>     <th>  Log-Likelihood:    </th> <td> -607.78</td>
+  <th>Time:</th>                 <td>19:38:42</td>     <th>  Log-Likelihood:    </th> <td> -607.78</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1779</td>      <th>  AIC:               </th> <td>   1226.</td>
@@ -15800,7 +15804,7 @@ $</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>After fitting the updated model, the <strong>R-squared value remains at 95%</strong>, and the <strong>F-statistic increases to 9086</strong>. This means that the model now explains more of the variance in the data while predicting the <code>rating</code> just as well.</p>
+<p>After fitting the updated model, the <strong>R-squared value remains at 95%</strong>, and the <strong>F-statistic increases to 9086</strong>. This means that the model now explains more of the variance in the data while explaining the <code>rating</code> feature just as well.</p>
 <p>Now I will create a design matrix using the <code>roast</code> feature, to fit a model, which will be used for ANOVA.</p>
 <h4 id="Model-3:">Model 3:<a class="anchor-link" href="#Model-3:">&#182;</a></h4>
 </div>
@@ -15993,7 +15997,7 @@ $</p>
   <th>Date:</th>             <td>Wed, 01 May 2024</td> <th>  Prob (F-statistic):</th> <td>5.14e-55</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>19:28:31</td>     <th>  Log-Likelihood:    </th> <td> -3206.1</td>
+  <th>Time:</th>                 <td>19:38:42</td>     <th>  Log-Likelihood:    </th> <td> -3206.1</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1779</td>      <th>  AIC:               </th> <td>   6422.</td>
@@ -16055,7 +16059,7 @@ $</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Based on the results, all roast categories significantly influence the rating, with <strong>Medium-Light having the highest coefficient and t-statistic</strong>.</p>
 <p>I'll now combine the second and third models in an attempt to increase the R-squared value.</p>
-
+<h4 id="Model-4:">Model 4:<a class="anchor-link" href="#Model-4:">&#182;</a></h4>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
@@ -16103,7 +16107,7 @@ $</p>
   <th>Date:</th>             <td>Wed, 01 May 2024</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td> 
 </tr>
 <tr>
-  <th>Time:</th>                 <td>19:28:32</td>     <th>  Log-Likelihood:    </th> <td> -584.28</td>
+  <th>Time:</th>                 <td>19:38:42</td>     <th>  Log-Likelihood:    </th> <td> -584.28</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1779</td>      <th>  AIC:               </th> <td>   1187.</td>
@@ -16175,7 +16179,7 @@ $</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>While this updated model has the same <strong>R-squared value of 95%</strong>, when comparing the log likelihood for all four models:</p>
+<p>While this updated model has the same <strong>R-squared value of 95%</strong> but a lower <strong>F-statistic of 4660</strong>, when comparing the log likelihood for all four models:</p>
 <ol>
 <li><strong>Model 1:</strong> -606.38</li>
 <li><strong>Model 2:</strong> -607.78</li>
@@ -16185,10 +16189,10 @@ $</p>
 <p>This model has the highest log likelihood values, so it should be considered to have the best fit.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>final.ipynb<span class="w"> </span>--output<span class="w"> </span>coffee_bean_linear_model
@@ -16197,6 +16201,28 @@ $</p>
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[NbConvertApp] Converting notebook final.ipynb to html
+[NbConvertApp] Writing 987785 bytes to coffee_bean_linear_model.html
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div>
