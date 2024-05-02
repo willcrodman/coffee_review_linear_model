@@ -6,6 +6,7 @@ This project delves into data from [coffeereviews.com](www.coffeereviews.com) wi
 
 ### Project Overview:
 - **Data Source:** The data was sourced from Kaggle, specifically [this dataset](https://www.kaggle.com/datasets/hanifalirsyad/coffee-scrap-coffeereview/versions/2/data?select=coffee_df.csv).
+
 - **Key Questions:**
   - Which features of a coffee bean best determine its rating?
   - How do ratings vary with different levels of coffee bean roast?
@@ -18,7 +19,7 @@ This project delves into data from [coffeereviews.com](www.coffeereviews.com) wi
 - **ANOVA:** Analysis of Variance to test the significance of the `roast` feature on coffee ratings.
 
 ### Model Development:
-- The models were developed iteratively, adjusting features and assessing improvements in R-squared and F-statistic values. The transformation of certain features like `100g_USD` was also explored.
+The models were developed iteratively, adjusting features and assessing improvements in R-squared and F-statistic values. The transformation of certain features like `100g_USD` was also explored.
 
 ### Conclusion:
-- The project successfully demonstrates the use of linear regression in understanding the impact of various features on coffee ratings. The final models provide a solid foundation for predicting ratings based on quantifiable coffee bean attributes.
+The project successfully demonstrates the use of linear regression in understanding the impact of various features on coffee ratings. The final models provide a solid foundation for predicting ratings based on quantifiable coffee bean attributes.
