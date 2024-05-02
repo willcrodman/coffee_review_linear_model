@@ -18,7 +18,7 @@ This project delves into data from [coffeereviews.com](www.coffeereviews.com) wi
 - **ANOVA:** Analysis of Variance to test the significance of the `roast` feature on coffee ratings.
 
 ### Model Development:
-- The models were developed iteratively, adjusting features and assessing improvements in R-squared and F-statistic values. The transformation of certain features like `100g_USD` was also explored to reduce its impact on the model due to low significance.
+- The models were developed iteratively, adjusting features and assessing improvements in R-squared and F-statistic values. The transformation of certain features like `100g_USD` was also explored.
 
 ### Conclusion:
 - The project successfully demonstrates the use of linear regression in understanding the impact of various features on coffee ratings. The final models provide a solid foundation for predicting ratings based on quantifiable coffee bean attributes.
