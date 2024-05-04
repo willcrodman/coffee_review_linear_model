@@ -13,10 +13,9 @@ This project delves into data from [coffeereviews.com](www.coffeereviews.com) wi
   - How effectively can a linear model predict coffee bean ratings?
 
 ### Statistical Analysis:
-- **Descriptive Analysis:** Initial exploration and visualization of numerical and categorical features.
-- **Data Transformation:** Handling skewness and transforming features to fit normality.
-- **Linear Regression:** Employing Ordinary Least Squares (OLS) method to fit models. Key metrics such as R-squared and F-statistic were used to assess model performance.
-- **ANOVA:** Analysis of Variance to test the significance of the `roast` feature on coffee ratings.
+- Data Transformation
+- Linear Regression
+- ANOVA (Analysis of Variance)
 
 ### Model Development:
 The models were developed iteratively, adjusting features and assessing improvements in R-squared and F-statistic values. The transformation of certain features like `100g_USD` was also explored.
